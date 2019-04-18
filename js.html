@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+
+<head>
+    <meta charset="UTF-8">
+</head> 
+<body>
+    <ul>
+    <li>X: <input id="x" type="text"></li>
+    <li>Y: <input id="y" type="text"></li>
+    </ul>
+    <label><input type="radio" id="soma" name="op">Soma</label>
+    <label><input type="radio" id="subtrai" name="op">Subtrai</label>
+    <label><input type="radio" id="multiplicar" name="op">Multiplicar</label>
+    <label><input type="radio" id="divide" name="op">Divide</label>
+    <button type="button" onclick="opera()">opera x|y</button>
+    <p id="resp"></p>
+<script>
+function opera() {
+    var x = parseFloat(document.getElementById('x').value);
+    var y = parseFloat(document.getElementById('y').value);
+    var op;
+
+    if (document.getElementById('soma').checked == true) {
+        op = x + y;
+    } else {
+        if (document.getElementById('subtrair').checked == true) {
+            op = x - y;
+        } else {
+            if (document.getElementById('multiplicar').checked == true) {
+                x = Math.round(x);
+                y = Math.round(y);
+                op = 0;
+                for (i = y; i > 0; i--) {
+                    op += x; //m = m + x
+                }
+            } else {
+                if (document.getElementById('divide').checked == true) {
+                    op = x / y;
+                        } else {
+                            op = "Atenção! Selecione uma operação!"
+                        }
+                    }
+                }
+            }
+            //if (isNaN(op) && !(typeof(op) == "string")) {
+            if (isNaN(op) && typeof(op) != "string") {
+                op = "Não é um número, verifique suas entradas!"
+            }
+            
+    document.getElementById('resp').innerHTML = op;
+}
+</script>
+
+    <!-- <h2>My First JavaScript</h2>
+    <p id="demo">JavaScript can change HTML content.</p>
+    <button type="button" onclick='document.getElementById("demo").innerHTML = "Hello JavaScript!" '>Click Me!</button>     
+    <button type="button"
+    onclick="document.getElementById('demo').innerHTML = Date() ">
+    Click me to display Date and Time.</button>
+
+    <p id="demo"></p>-->
+
+</body>
+
+  
+
+
+</html>
